@@ -17,10 +17,10 @@ public class StartUp implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (userService.findAll().isEmpty()) {
             UserDto user = UserDto.builder()
-                    .username("master")
-                    .password("master")
-                    .fullName("master")
-                    .email("master@mail.com")
+                    .username("admin")
+                    .password("admin")
+                    .fullName("admin")
+                    .email("admin@mail.com")
                     .role("ADMIN")
                     .build();
             userService.insert(user);

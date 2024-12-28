@@ -18,6 +18,10 @@ public class EnrollmentController {
         this.enrollmentService = enrollmentService;
     }
 
+    @GetMapping
+    public List<EnrollmentDto> getAllEnrollments() {
+        return enrollmentService.findAll();
+    }
     @GetMapping("/{enrollmentId}")
     public EnrollmentDto getEnrollment(@PathVariable int enrollmentId) {
         return enrollmentService.getEnrollmentById(enrollmentId);

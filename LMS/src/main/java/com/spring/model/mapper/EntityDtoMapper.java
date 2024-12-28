@@ -21,8 +21,10 @@ public interface EntityDtoMapper {
     @Mapping(source = "instructorId" , target = "instructor.userId")
     Course courseDtoToCourse(CourseDto courseDto);
 
+    @Mapping(source = "course.courseId" , target = "courseId")
     LessonDto lessonToLessonDto(Lesson lesson);
 
+    @Mapping(target = "course.courseId" , source = "courseId")
     Lesson lessonDtoToLesson(LessonDto lessonDto);
 
     @Mapping(target = "courseId" , source = "course.courseId")
@@ -33,19 +35,31 @@ public interface EntityDtoMapper {
     @Mapping(source = "studentId" , target = "student.userId")
     Enrollment enrollmentDtoToEnrollment(EnrollmentDto enrollmentDto);
 
+    @Mapping(target = "courseId" , source = "course.courseId")
     AssessmentDto assessmentToAssessmentDto(Assessment assessment);
 
+    @Mapping(source = "courseId" , target = "course.courseId")
     Assessment assessmentDtoToAssessment(AssessmentDto assessmentDto);
 
+    @Mapping(source ="assessment.assessmentId" , target ="assessmentId" )
+    @Mapping(source ="student.userId" , target ="studentId" )
     GradeDto gradeToGradeDto(Grade grade);
 
+    @Mapping(target ="assessment.assessmentId" , source ="assessmentId" )
+    @Mapping(target ="student.userId" , source ="studentId" )
     Grade gradeDtoToGrade(GradeDto gradeDto);
 
+    @Mapping(target = "courseId" , source = "course.courseId")
+    @Mapping(target = "studentId" , source = "student.userId")
     AttendanceDto attendanceToAttendanceDto(Attendance attendance);
 
+    @Mapping(source = "courseId" , target = "course.courseId")
+    @Mapping(source = "studentId" , target = "student.userId")
     Attendance attendanceDtoToAttendance(AttendanceDto attendanceDto);
 
+    @Mapping(source = "user.userId" , target = "userId")
     NotificationDto notificationToNotificationDto(Notification notification);
 
+    @Mapping(target = "user.userId" , source = "userId")
     Notification notificationDtoToNotification(NotificationDto notificationDto);
 }

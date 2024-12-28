@@ -4,6 +4,8 @@ package com.spring.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Setter
 @Getter
 public class AssessmentDto {
@@ -12,6 +14,6 @@ public class AssessmentDto {
     private int courseId;
     private String title;
     private String type;
-    private String dueDate;
+    private Date dueDate;
 }
 

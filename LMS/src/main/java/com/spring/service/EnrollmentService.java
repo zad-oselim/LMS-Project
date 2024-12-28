@@ -23,6 +23,11 @@ public class EnrollmentService {
         this.entityDtoMapper = entityDtoMapper;
     }
 
+    public List<EnrollmentDto> findAll() {
+        List<Enrollment> enrollments = enrollmentRepository.findAll();
+        return enrollments.stream().map(entityDtoMapper::enrollmentToEnrollmentDto).toList();
+    }
+
     public EnrollmentDto getEnrollmentById(int enrollmentId) {
         Enrollment enrollment = enrollmentRepository.findById(enrollmentId).orElseThrow(() -> new RuntimeException("Enrollment not found"));
         return entityDtoMapper.enrollmentToEnrollmentDto(enrollment);
@@ -48,4 +53,6 @@ public class EnrollmentService {
         Enrollment enrollment = enrollmentRepository.findById(enrollmentId).orElseThrow(() -> new RuntimeException("Enrollment not found"));
         enrollmentRepository.delete(enrollment);
     }
+
+
 }
